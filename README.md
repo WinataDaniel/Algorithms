@@ -4,6 +4,7 @@
 - [Scenario](#scenario)
 - [Task 1](#task-1)
 - [Task 2](#task-2)
+- [Example of Implementation](#example-of-implementation)
 
 ## Scenario
 Your superiors at the company "Data Fuse Inc." are enthusiastic about your skills! Since the processing speed of the enormous amounts of data has to be optimized, you have been asked to develop a framework for measuring runtimes. With the help of this program you are to investigate the execution time of different sorting algorithms in dependence of a problem size n and evaluate them. Since exact time measurements are not trivial in C/C++, you do not need to implement this yourself. Instead you should use OpenMP to measure the times (advantage: consistent and easy to use). In the second part of the task a simple hash table is to be implemented.
@@ -76,5 +77,60 @@ Program a main program main, in which one can select the collision strategy as w
 ### 2.7
 After the unit tests have run successfully, create a hash table of size 1000 in your main program and automatically insert 200 random numbers in the range of values from 1000 to 1500 and output the number of collisions on the console.
 
-That's it!
+## Example of Implementation
+```c++
+	//************
+	// MergeSort *
+	//************
+	void Merge(vector<int>& a, vector<int>& b, int low, int pivot, int high)
+	{
+		int i = low;
+		int j = pivot;
+		int lowEnd = pivot - 1;
+		int hightEnd = high;
+		// Schreibindex für b
+		int tmpPos = low;
+		// Anzahl Elemente
+		int n = high - low + 1;
+
+		while (i <= lowEnd && j <= hightEnd) {
+			if (a[i] <= a[j]) {
+				b[tmpPos] = a[i];
+				i++;
+			}
+			else {
+				b[tmpPos] = a[j];
+				j++;
+			}
+			tmpPos++;
+		}
+
+		while (i <= lowEnd) {
+			b[tmpPos++] = a[i++];
+		}
+		while (j <= hightEnd) {
+			b[tmpPos++] = a[j++];
+		}
+
+		int k = 0;
+		while (k < n) {
+			a[hightEnd] = b[hightEnd];
+			hightEnd--;
+			k++;
+		}
+	}
+
+
+	void MergeSort(vector<int>& a, vector<int>& b, int low, int high)
+	{
+		if (low < high) {
+			int middle = (low + high) / 2;
+			MergeSort(a, b, low, middle);
+			MergeSort(a, b, middle + 1, high);
+			Merge(a, b, low, middle + 1, high);
+		}
+	}
+```
+
+That's it! <br  />
 Thankyou for reading!
