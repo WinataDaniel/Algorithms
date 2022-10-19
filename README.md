@@ -1,5 +1,12 @@
 # Algorithms
-Scenario - Your superiors at the company "Data Fuse Inc." are enthusiastic about your skills! Since the processing speed of the enormous amounts of data has to be optimized, you have been asked to develop a framework for measuring runtimes. With the help of this program you are to investigate the execution time of different sorting algorithms in dependence of a problem size n and evaluate them. Since exact time measurements are not trivial in C/C++, you do not need to implement this yourself. Instead you should use OpenMP to measure the times (advantage: consistent and easy to use). In the second part of the task a simple hash table is to be implemented.
+
+## Table of contents
+- [Scenario](#scenario)
+- [Task 1](#task-1)
+- [Task 2](#task-2)
+
+## Scenario
+Your superiors at the company "Data Fuse Inc." are enthusiastic about your skills! Since the processing speed of the enormous amounts of data has to be optimized, you have been asked to develop a framework for measuring runtimes. With the help of this program you are to investigate the execution time of different sorting algorithms in dependence of a problem size n and evaluate them. Since exact time measurements are not trivial in C/C++, you do not need to implement this yourself. Instead you should use OpenMP to measure the times (advantage: consistent and easy to use). In the second part of the task a simple hash table is to be implemented.
 
 ## Task 1
 ### 1.1
